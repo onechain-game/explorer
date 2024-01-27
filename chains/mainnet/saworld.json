@@ -1,0 +1,20 @@
+{
+    "chain_name": "my-test-chain",
+    "coingecko": "simmapp",
+    "api": ["http://localhost:1317"],
+    "rpc": ["http://localhost:26657"],
+    "snapshot_provider": "",
+    "sdk_version": "0.47.3",
+    "coin_type": "118",
+    "min_tx_fee": "20000",
+    "addr_prefix": "saw",
+    "logo": "https://bscscan.com/token/images/summonersarena2_32.png",
+    "theme_color": "#812cd6",
+    "assets": [{
+        "base": "sae",
+        "symbol": "sae",
+        "exponent": "6",
+        "coingecko_id": "cosmos", 
+        "logo": "https://bscscan.com/token/images/summonersarena2_32.png"
+    }]
+}
