@@ -387,5 +387,13 @@ export const useFormatter = defineStore('formatter', {
       }
       return '';
     },
+    formatSortHash(hash: string) {
+      if (hash.length < 20) return hash
+      return hash.substring(0, 20)+'...';
+    },
+    formatSortAddress(address: string) {
+      if (address.length < 20) return address
+      return address.substring(0, 5)+'...' + address.substring(address.length - 5, address.length);
+    },
   },
 });

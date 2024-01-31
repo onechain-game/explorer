@@ -188,3 +188,20 @@ export function rgbToHsl(color: string) {
     l,
   };
 }
+
+export function decodeValueMessageSend(value: Uint8Array) {
+  let string = new TextDecoder().decode(value)
+  const listString = string.split("\n")
+  const listAddress = listString[1].replaceAll('','').replaceAll('','').replaceAll('','').split('*')
+  let data = {}
+  data['from'] = listAddress[1]
+  data['to'] = listAddress[2].substring(0, 42)
+  if (listString.length < 2) return data
+  let listAmount = []
+  for (let i = 2; i < listString.length; i++) {
+    const amount = listString[i].replaceAll('', '').replaceAll('','').replaceAll('','').replaceAll('','').split('')
+    listAmount.push(amount)
+  }
+  data['amount'] = listAmount
+  return data
+}

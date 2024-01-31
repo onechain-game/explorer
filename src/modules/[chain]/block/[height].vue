@@ -24,7 +24,11 @@ const isFutureBlock = computed({
   get: () => {
     const latest = store.latest?.block?.header.height
     const isFuture = latest ? target.value > Number(latest) : true
-    if (!isFuture && !current.value.block_id) store.fetchBlock(target.value).then(x => current.value = x)
+    if (!isFuture && !current.value.block_id) store.fetchBlock(target.value).then((x) => {
+      console.log(x)
+      current.value = x
+      console.log(current)
+    })
     return isFuture
   },
   set: val => {
