@@ -85,13 +85,15 @@ export const useBlockchain = defineStore('blockchain', {
                   !this.current?.features ||
                   this.current.features.includes(String(x.meta.i18n))
               ) // filter none-custom module
-              .map((x) => ({
-                title: `module.${x.meta.i18n}`,
-                to: { path: x.path.replace(':chain', this.chainName) },
-                icon: { icon: 'mdi-chevron-right', size: '22' },
-                i18n: true,
-                order: Number(x.meta.order || 100),
-              }))
+              .map((x) => {
+                return {
+                  title: `module.${x.meta.i18n}`,
+                  to: { path: x.path.replace(':chain', this.chainName) },
+                  icon: { icon: 'mdi-chevron-right', size: '22' },
+                  i18n: true,
+                  order: Number(x.meta.order || 100),
+                }
+              })
               .sort((a, b) => a.order - b.order),
           },
         ];
@@ -112,23 +114,6 @@ export const useBlockchain = defineStore('blockchain', {
       // combine all together
       return [
         ...currNavItem,
-        { heading: 'Ecosystem' } as NavSectionTitle,
-        {
-          title: 'Favorite',
-          children: favNavItems,
-          badgeContent: favNavItems.length,
-          badgeClass: 'bg-primary',
-          i18n: true,
-          icon: { icon: 'mdi-star', size: '22' },
-        } as NavGroup,
-        {
-          title: 'All Blockchains',
-          to: { path: '/' },
-          badgeContent: this.dashboard.length,
-          badgeClass: 'bg-primary',
-          i18n: true,
-          icon: { icon: 'mdi-grid', size: '22' },
-        } as NavLink,
       ];
     },
   },
