@@ -192,11 +192,16 @@ export function rgbToHsl(color: string) {
 export function decodeValueMessageSend(value: Uint8Array) {
   let string = new TextDecoder().decode(value)
   const listString = string.split("\n")
-  const listAddress = listString[1].replaceAll('','').replaceAll('','').replaceAll('','').split('*')
+  const listAddress = listString[1].replaceAll('','').replaceAll('','').split('')
   let data = {}
-  data['from'] = listAddress[1]
-  data['to'] = listAddress[2].substring(0, 42)
-  if (listString.length < 2) return data
+  let indexSaw = listAddress[0].indexOf('saw')
+  data['from'] = listAddress[0].substring(indexSaw, 42 + indexSaw)
+  data['to'] = ''
+  if (listAddress.length > 1) {
+    indexSaw = listAddress[1].indexOf('saw')
+    data['to'] = listAddress[1].substring(indexSaw, 42 + indexSaw)
+  }
+  if (listString.length < 1) return data
   let listAmount = []
   for (let i = 2; i < listString.length; i++) {
     const amount = listString[i].replaceAll('', '').replaceAll('','').replaceAll('','').replaceAll('','').split('')
@@ -205,3 +210,5 @@ export function decodeValueMessageSend(value: Uint8Array) {
   data['amount'] = listAmount
   return data
 }
+
+//*saw1qv5xdcxwxr42pxz2xkuyqdd9q2e4atfn3t97xh1sawvaloper13742lg66j07nhuc3qtrwpatp9wz88rcvmm0edf

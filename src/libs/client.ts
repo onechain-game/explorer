@@ -235,6 +235,14 @@ export class CosmosRestClient extends BaseRestClient<RequestRegistry> {
     );
   }
 
+  //saw
+  async getListActionLog(page?: PageRequest) {
+    if(!page) page = new PageRequest()
+    page.offset = 0
+    const query =`?${page.toQueryString()}`;
+    return this.request(this.registry.list_action_log, {}, query);
+  }
+
   //tendermint
   async getBaseAbciQuery() {
     return this.request(this.registry.base_tendermint_abci_query, {});

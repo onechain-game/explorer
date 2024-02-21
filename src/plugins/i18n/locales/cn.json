@@ -12,13 +12,15 @@
     "state-sync": "状态同步",
     "cosmwasm": "Cosmwasm",
     "widget": "Widgets",
+    "transactions": "Transactions",
     "ibc": "IBC",
     "ecosystem": "生态系统",
     "favorite": "收藏夹",
     "add_to_favorite": "加入收藏夹",
     "all_blockchains": "全部区块链",
     "sponsors": "赞助商",
-    "links": "链接"
+    "links": "链接",
+    "ap": "Ap"
   },
   "pages": {
     "title": "Ping Dashboard",
@@ -279,5 +281,14 @@
     "receive": "Receive",
     "app_versions": "应用版本",
     "node_info": "节点信息"
+  },
+  "saw": {
+    "Id": "Id",
+    "GameId": "GameId",
+    "QuestId": "QuestId",
+    "GamePublisherId": "GamePublisherId",
+    "ReceiveAddress": "ReceiveAddress",
+    "ApAmount": "ApAmount",
+    "ClaimTime": "ClaimTime"
   }
 }

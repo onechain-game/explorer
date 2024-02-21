@@ -24,6 +24,8 @@ if (props.hash) {
 const messages = computed(() => {
     return tx.value.tx?.body?.messages || [];
 });
+
+console.log(messages)
 </script>
 <template>
     <div>

@@ -5,6 +5,7 @@ import { computed } from '@vue/reactivity';
 import { hashTx } from '@/libs';
 import { useBlockchain, useFormatter } from '@/stores';
 import { decodeValueMessageSend } from '@/libs/utils';
+const chainStore = useBlockchain()
 const props = defineProps({
   value: { type: Array<string> },
 });
@@ -16,7 +17,6 @@ const txs = computed(() => {
       tx: decodeTxRaw(fromBase64(x)),
       data: {}
     }
-    console.log(decodeTxRaw(fromBase64('Co4BCosBChwvY29zbW9zLmJhbmsudjFiZXRhMS5Nc2dTZW5kEmsKLHRlcnJhMWtjemprbDN4ejQyZGw2cXFmZ25yZTU1eGg2NWw0NjlscXdhdWt6Eix0ZXJyYTFtNnJ6bnlmMm0wdTZ5Nnc0cmNydHhmNTU4Z2VseGcwczB2aGM4bhoNCgV1bHVuYRIEMTAyNhJpClIKRgofL2Nvc21vcy5jcnlwdG8uc2VjcDI1NmsxLlB1YktleRIjCiEDNxZ05zVbNbxx3E80Za2uSA+7hArWnqyzQpyvne+01roSBAoCCAEY94ExEhMKDQoFdWx1bmESBDEwNzUQuK8EGkCUDOlion9zD7/rf6nl5ppBHEOrpKSCNvNxzBLAydmOu3RbZX2PRDqR1yibr9uiA62485FcwyVN0IXGEnH3icgo')))
 
     if (item.tx.body.messages.length < 2) {
       const data = decodeValueMessageSend(item.tx.body.messages[0].value)
@@ -47,7 +47,7 @@ const chain = useBlockchain();
         <tr v-for="item in txs">
           <td>
             <RouterLink :to="`/${chain.chainName}/tx/${item.hash}`" class="text-primary dark:invert">{{
-              item.hash
+              format.formatSortHash(item.hash)
             }}</RouterLink>
           </td>
           <td>
@@ -57,8 +57,8 @@ const chain = useBlockchain();
               )
             }}
           </td>
-          <td>{{ format.formatSortAddress(item.data.from || '') }}</td>
-          <td>{{ format.formatSortAddress(item.data.to.replaceAll('','') || '') }}</td>
+          <td><RouterLink :to="`/${chainStore.chainName}/account/${item.data.from}`">{{ format.formatSortAddress(item.data.from || '') }}</RouterLink></td>
+          <td><RouterLink :to="`/${chainStore.chainName}/account/${item.data.to.replaceAll('','')}`">{{ format.formatSortAddress(item.data.to.replaceAll('','') || '') }}</RouterLink></td>
           <td>
             <p v-for="element in item.data.amount">{{`${element[1]}${element[0]} `}} </p>
           </td>

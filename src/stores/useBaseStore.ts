@@ -6,6 +6,7 @@ import type { Block } from '@/types';
 import { hashTx } from '@/libs';
 import { fromBase64 } from '@cosmjs/encoding';
 import { useRouter } from 'vue-router';
+import { decodeValueMessageSend } from '@/libs/utils';
 
 export const useBaseStore = defineStore('baseStore', {
     state: () => {
@@ -47,6 +48,7 @@ export const useBaseStore = defineStore('baseStore', {
                 hash: string;
                 tx: DecodedTxRaw;
             }[];
+            console.log('txsInRecents')
             this.recents.forEach((b) =>
                 b.block?.data?.txs.forEach((tx: string) => {
                     if (tx) {
@@ -63,6 +65,7 @@ export const useBaseStore = defineStore('baseStore', {
                     }
                 })
             );
+            console.log(txs)
             return txs.sort((a, b) => {return Number(b.height) - Number(a.height)});
         },
     },
@@ -117,6 +120,47 @@ export const useBaseStore = defineStore('baseStore', {
         },
         async fetchAbciInfo() {
             return this.blockchain.rpc.getBaseNodeInfo();
+        },
+        async fetchListTransaction() {
+            console.log('fetchListTransaction')
+            const txs = [] as {
+                height: string,
+                hash: string,
+                tx: DecodedTxRaw,
+                data: {}
+            }[];
+            let heightLast = this.latest
+            if (!heightLast?.block) {
+                heightLast = await this.fetchLatest()
+            }
+            const height = parseInt(heightLast.block.header.height)
+            for (let i = height; i > height - 20; i--) {
+                let block = await this.fetchBlock(i)
+                block?.block.data?.txs.forEach((tx: string) => {
+                    if (tx) {
+                        const raw = fromBase64(tx);
+                        try {
+                            const tx = decodeTxRaw(raw)
+                            let data = {}
+                            if (tx.body.messages.length < 2) {
+                                data = decodeValueMessageSend(tx.body.messages[0].value)
+                            }
+                            console.log(tx.body.messages[0].typeUrl )
+                            if (tx.body.messages[0].typeUrl.indexOf('MsgSend') >= 0) {
+                                txs.push({
+                                    height: block.block.header.height,
+                                    hash: hashTx(raw),
+                                    tx: tx,
+                                    data: data
+                                });
+                            }
+                        } catch (e) {
+                            console.error(e);
+                        }
+                    }
+                })
+            }
+            return txs
         },
         // async fetchNodeInfo() {
         //     return this.blockchain.rpc.no()

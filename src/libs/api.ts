@@ -144,6 +144,12 @@ export const DEFAULT: RequestRegistry = {
     adapter,
   },
 
+  //saw
+  list_action_log: {
+    url: '/saw/saw/list_action_log',
+    adapter,
+  },
+
   // ibc
   ibc_app_ica_controller_params: {
     url: '/ibc/apps/interchain_accounts/controller/v1/params',

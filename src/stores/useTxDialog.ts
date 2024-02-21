@@ -40,9 +40,13 @@ export const useTxDialog = defineStore('txDialogStore', {
     },
     open(type: string, param: any, callback?: Function) {
       this.type = type;
+      console.log('type ' + this.type)
       this.sender = this.walletAddress;
+      console.log('sender ' + this.sender)
       this.endpoint = this.currentEndpoint || "";
+      console.log('endpoint ' + this.endpoint)
       this.params = JSON.stringify(param)
+      console.log('params ' + this.params)
       if(callback) {
         CALLBACK = callback
       }else {

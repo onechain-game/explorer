@@ -68,9 +68,9 @@ function selected(route: any, nav: NavLink) {
     >
       <div class="flex justify-between mt-1 pl-4 py-4 mb-1">
         <RouterLink :to="'/'+blockchain.chainName" class="flex items-center">
-          <img class="w-10 h-10" src="../../assets/logo.svg" />
+          <img class="w-10 h-10" src="https://scan.onechain.game/assets/logo-af7b6e9d.png" />
           <h1 class="flex-1 ml-3 text-2xl font-semibold dark:text-white">
-            Ping.pub
+            SaworldScan
           </h1>
         </RouterLink>
         <div
@@ -252,11 +252,7 @@ function selected(route: any, nav: NavLink) {
 
       <!-- 👉 Pages -->
       <div style="min-height: calc(100vh - 180px);">
-        <RouterView v-slot="{ Component }">
-          <Transition mode="out-in">
-            <Component :is="Component" />
-          </Transition>
-        </RouterView>
+        <RouterView></RouterView>
       </div>
 
       <newFooter />

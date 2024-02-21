@@ -389,7 +389,7 @@ export const useFormatter = defineStore('formatter', {
     },
     formatSortHash(hash: string) {
       if (hash.length < 20) return hash
-      return hash.substring(0, 20)+'...';
+      return hash.substring(0, 5)+'...'+hash.substring(hash.length - 5, hash.length);
     },
     formatSortAddress(address: string) {
       if (address.length < 20) return address
@@ -397,3 +397,4 @@ export const useFormatter = defineStore('formatter', {
     },
   },
 });
+

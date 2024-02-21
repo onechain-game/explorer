@@ -42,6 +42,7 @@ import type {
   Validator,
 } from '@/types/staking';
 import type { PaginatedTxs, Tx, TxResponse } from '@/types';
+import type { PaginatedActionLog} from '@/types/saw';
 import semver from 'semver'
 export interface Request<T> {
   url: string;
@@ -123,6 +124,9 @@ export interface RequestRegistry extends AbstractRegistry {
   base_tendermint_node_info: Request<NodeInfo>;
   base_tendermint_validatorsets_latest: Request<PaginatedTendermintValidator>;
   base_tendermint_validatorsets_height: Request<PaginatedTendermintValidator>;
+
+  //saw
+  list_action_log: Request<PaginatedActionLog>
 
   tx_txs: Request<PaginatedTxs>;
   tx_txs_block: Request<Tx>;

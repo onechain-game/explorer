@@ -5,6 +5,7 @@
     "staking": "Staking",
     "governance": "Governance",
     "parameters": "Parameters",
+    "transactions": "Transactions",
     "uptime": "Uptime",
     "state-sync": "State Sync",
     "cosmwasm": "Cosmwasm",
@@ -19,7 +20,8 @@
     "add_to_favorite": "Add to favorite",
     "all_blockchains": "All Blockchain",
     "sponsors": "Sponsors",
-    "links": "Links"
+    "links": "Links",
+    "ap": "Ap"
   },
   "pages": {
     "title": "Ping Dashboard",
@@ -65,7 +67,10 @@
     "hash": "Hash",
     "messages": "Messages",
     "time": "Time",
-    "error": "Account does not exists on chain"
+    "error": "Account does not exists on chain",
+    "from": "From",
+    "to": "To",
+    "totalAmount": "TotalAmount"
   },
   "block": {
     "estimated_time": "Estimated Time",
@@ -288,5 +293,14 @@
     "receive": "Receive",
     "app_versions": "Application Versions",
     "node_info": "Node Information"
+  },
+  "saw": {
+    "Id": "Id",
+    "GameId": "GameId",
+    "QuestId": "QuestId",
+    "GamePublisherId": "GamePublisherId",
+    "ReceiveAddress": "ReceiveAddress",
+    "ApAmount": "ApAmount",
+    "ClaimTime": "ClaimTime"
   }
 }
