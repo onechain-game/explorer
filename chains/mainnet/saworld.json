@@ -1,8 +1,8 @@
 {
-    "chain_name": "my-test-chain",
+    "chain_name": "saw",
     "coingecko": "simmapp",
-    "api": ["http://localhost:1317"],
-    "rpc": ["http://localhost:26657"],
+    "api": ["https://docs-api.onechain.game"],
+    "rpc": ["https://api-chain.onechain.game"],
     "snapshot_provider": "",
     "sdk_version": "0.47.3",
     "coin_type": "118",
