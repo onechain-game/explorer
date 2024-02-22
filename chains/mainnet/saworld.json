@@ -1,8 +1,8 @@
 {
     "chain_name": "saw",
     "coingecko": "simmapp",
-    "api": ["https://docs-api.onechain.game"],
-    "rpc": ["https://api-chain.onechain.game"],
+    "api": ["https://api-saw.onechain.game/"],
+    "rpc": ["https://rpc-saw.onechain.game"],
     "snapshot_provider": "",
     "sdk_version": "0.47.3",
     "coin_type": "118",
