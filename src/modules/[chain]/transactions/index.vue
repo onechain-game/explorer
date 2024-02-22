@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { onMounted, ref, computed, onUnmounted, onUpdated } from 'vue';
 import { useBlockchain, useFormatter, useStakingStore, useBaseStore } from '@/stores';
-import { decodeTxRaw, type DecodedTxRaw } from '@cosmjs/proto-signing';
+import type { decodeTxRaw, DecodedTxRaw } from '@cosmjs/proto-signing';
+import type { MessageValue } from '@/types'
 
 const format = useFormatter();
 const chainStore = useBlockchain();
@@ -13,14 +14,14 @@ let listTransaction = ref([] as {
   height: string,
   hash: string,
   tx: DecodedTxRaw,
-  data: {}
+  data: MessageValue
 }[]);
 
 let listAllTransaction = [] as {
   height: string,
   hash: string,
   tx: DecodedTxRaw,
-  data: {}
+  data: MessageValue
 }[]
 
 let indexPage = 0

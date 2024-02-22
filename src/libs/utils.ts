@@ -1,3 +1,5 @@
+import type { MessageValue } from '@/types';
+
 export function getLocalObject(name: string) {
   const text = localStorage.getItem(name);
   if (text) {
@@ -193,13 +195,12 @@ export function decodeValueMessageSend(value: Uint8Array) {
   let string = new TextDecoder().decode(value)
   const listString = string.split("\n")
   const listAddress = listString[1].replaceAll('','').replaceAll('','').split('')
-  let data = {}
+  let data = {} as MessageValue
   let indexSaw = listAddress[0].indexOf('saw')
-  data['from'] = listAddress[0].substring(indexSaw, 42 + indexSaw)
-  data['to'] = ''
+  data.from = listAddress[0].substring(indexSaw, 42 + indexSaw)
   if (listAddress.length > 1) {
     indexSaw = listAddress[1].indexOf('saw')
-    data['to'] = listAddress[1].substring(indexSaw, 42 + indexSaw)
+    data.to = listAddress[1].substring(indexSaw, 42 + indexSaw)
   }
   if (listString.length < 1) return data
   let listAmount = []
@@ -207,7 +208,7 @@ export function decodeValueMessageSend(value: Uint8Array) {
     const amount = listString[i].replaceAll('', '').replaceAll('','').replaceAll('','').replaceAll('','').split('')
     listAmount.push(amount)
   }
-  data['amount'] = listAmount
+  data.amount = listAmount
   return data
 }
 

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { useBlockchain } from '@/stores';
 import { decodeTxRaw, type DecodedTxRaw } from '@cosmjs/proto-signing';
 import dayjs from 'dayjs';
-import type { Block } from '@/types';
+import type { Block, MessageValue } from '@/types';
 import { hashTx } from '@/libs';
 import { fromBase64 } from '@cosmjs/encoding';
 import { useRouter } from 'vue-router';
@@ -127,7 +127,7 @@ export const useBaseStore = defineStore('baseStore', {
                 height: string,
                 hash: string,
                 tx: DecodedTxRaw,
-                data: {}
+                data: MessageValue
             }[];
             let heightLast = this.latest
             if (!heightLast?.block) {
@@ -141,7 +141,7 @@ export const useBaseStore = defineStore('baseStore', {
                         const raw = fromBase64(tx);
                         try {
                             const tx = decodeTxRaw(raw)
-                            let data = {}
+                            let data = {} as MessageValue
                             if (tx.body.messages.length < 2) {
                                 data = decodeValueMessageSend(tx.body.messages[0].value)
                             }

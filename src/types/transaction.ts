@@ -66,3 +66,9 @@ export interface PaginatedTxs extends PaginatedResponse {
     txs: Tx[]
     tx_responses: TxResponse[]
 }
+
+export interface MessageValue {
+    amount: string[][],
+    from : string,
+    to: string
+  }

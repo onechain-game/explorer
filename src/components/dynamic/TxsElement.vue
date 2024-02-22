@@ -5,6 +5,8 @@ import { computed } from '@vue/reactivity';
 import { hashTx } from '@/libs';
 import { useBlockchain, useFormatter } from '@/stores';
 import { decodeValueMessageSend } from '@/libs/utils';
+import type { MessageValue } from '@/types'
+
 const chainStore = useBlockchain()
 const props = defineProps({
   value: { type: Array<string> },
@@ -15,7 +17,7 @@ const txs = computed(() => {
     let item = {
       hash: hashTx(fromBase64(x)),
       tx: decodeTxRaw(fromBase64(x)),
-      data: {}
+      data: {} as MessageValue
     }
 
     if (item.tx.body.messages.length < 2) {

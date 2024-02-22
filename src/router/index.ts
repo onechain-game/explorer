@@ -10,7 +10,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [{
     path: "/",
-    redirect: { path: "/SaworldChain"}, // redirect property 
+    redirect: { path: "/saw"}, // redirect property 
     component: () => import("@/modules/[chain]/index.vue"),
   },...setupLayouts(routes)],
 })
