@@ -432,7 +432,7 @@ function pageload(p: number) {
               </div>
             <RouterLink
               class="text-xs text-primary"
-              :to="`/${chain}/account/${addresses.account}`"
+              :to="`/account/${addresses.account}`"
             >
               {{ addresses.account }}
             </RouterLink>
@@ -529,12 +529,12 @@ function pageload(p: number) {
           <tbody>
             <tr v-for="(item, i) in txs.tx_responses">
               <td class="text-sm text-primary">
-                <RouterLink :to="`/${props.chain}/block/${item.height}`">{{
+                <RouterLink :to="`/block/${item.height}`">{{
                   item.height
                 }}</RouterLink>
               </td>
               <td class="truncate text-primary" style="max-width: 200px">
-                <RouterLink :to="`/${props.chain}/tx/${item.txhash}`">
+                <RouterLink :to="`/tx/${item.txhash}`">
                   {{ item.txhash }}
                 </RouterLink>
               </td>

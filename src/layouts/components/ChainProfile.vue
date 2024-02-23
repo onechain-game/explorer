@@ -7,7 +7,7 @@ chainStore.initial();
 const router = useRouter();
 function changeEndpoint(item: Endpoint) {
   chainStore.setRestEndpoint(item);
-  if (chainStore.current) router.push(`/${chainStore.current.chainName}`);
+  if (chainStore.current) router.push(`/`);
 }
 </script>
 

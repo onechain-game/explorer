@@ -49,7 +49,7 @@ async function fetchPosition() {
           <td>{{ item.gameId }}</td>
           <td>{{ item.questId }}</td>
           <td>{{ item.gamePublisherId }}</td>
-          <td class="text-sm text-primary"><RouterLink :to="`/${props.chain}/account/${item.receiveAddress}`">{{ item.receiveAddress }}</RouterLink></td>
+          <td class="text-sm text-primary"><RouterLink :to="`/account/${item.receiveAddress}`">{{ item.receiveAddress }}</RouterLink></td>
           <td>{{ item.apAmount }}</td>
           <td>{{ Boolean(item.claimTime) ? format.toDay(parseInt(item.claimTime), 'from') : '' }}</td>
         </tr>

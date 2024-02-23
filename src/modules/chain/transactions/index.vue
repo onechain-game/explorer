@@ -66,16 +66,16 @@ async function fetchPosition() {
       <tbody>
         <tr v-for="(item, index) in listTransaction" :index="index">
           <td class="text-sm text-primary">
-            <RouterLink :to="`/${props.chain}/block/${item.height}`">{{ item.height }}</RouterLink>
+            <RouterLink :to="`/block/${item.height}`">{{ item.height }}</RouterLink>
           </td>
           <td class="truncate text-primary" >
-            <RouterLink :to="`/${props.chain}/tx/${item.hash}`">{{
+            <RouterLink :to="`/tx/${item.hash}`">{{
               format.formatSortHash(item.hash)
             }}</RouterLink>
           </td>
           <td>{{ format.messages(item.tx.body.messages) }}</td>
-          <td class="text-sm text-primary"><RouterLink :to="`/${chainStore.chainName}/account/${item.data.from}`">{{ format.formatSortAddress(item.data.from || '') }}</RouterLink></td>
-          <td class="text-sm text-primary"><RouterLink :to="`/${chainStore.chainName}/account/${item.data.to.replaceAll('','')}`">{{ format.formatSortAddress(item.data.to.replaceAll('','') || '') }}</RouterLink></td>
+          <td class="text-sm text-primary"><RouterLink :to="`/account/${item.data.from}`">{{ format.formatSortAddress(item.data.from || '') }}</RouterLink></td>
+          <td class="text-sm text-primary"><RouterLink :to="`/account/${item.data.to.replaceAll('','')}`">{{ format.formatSortAddress(item.data.to.replaceAll('','') || '') }}</RouterLink></td>
           <td>
             <p v-for="element in item.data.amount">{{`${element[1]}${element[0]} `}} </p>
           </td>

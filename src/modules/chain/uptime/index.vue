@@ -154,7 +154,7 @@ function fetchAllKeyRotation() {
         @click="changeTab('2')"
         >{{ $t('module.blocks') }}</a
       >
-      <RouterLink :to="`/${chain}/uptime/customize`">
+      <RouterLink :to="`/uptime/customize`">
         <a class="tab text-gray-400 capitalize">{{ $t('uptime.customize') }}</a>
       </RouterLink>
     </div>

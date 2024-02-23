@@ -306,7 +306,7 @@ async function loadBalances(endpoint: string, address: string) {
           <ul class="!menu w-full">
             <div v-for="x in subaccounts">
               <li v-if="x.delegation.amount">
-                <RouterLink :to="`/${x.account.chainName}/account/${x.account.address}`">
+                <RouterLink :to="`/account/${x.account.address}`">
                   <img :src="x.account.logo" class="w-6 h-6 mr-2" />
                   <span class="font-bold">{{ format.formatToken(x.delegation, true, '0,0.[00]', 'all') }} <br><span
                       class="text-xs" :class="format.color(x.delegation.change24h)">{{
@@ -325,7 +325,7 @@ async function loadBalances(endpoint: string, address: string) {
           <ul class="!menu w-full">
             <div v-for="s in subaccounts">
               <li v-for="x in s.balances">
-                <RouterLink :to="`/${s.account.chainName}/account/${s.account.address}`">
+                <RouterLink :to="`/account/${s.account.address}`">
                   <img :src="s.account.logo" class="w-6 h-6 mr-2" />
                   <span class="font-bold">{{ format.formatToken(x, true, '0,0.[00]', 'all') }} <br><span
                       class="text-xs" :class="format.color(x.change24h)">{{ format.formatNumber(x.change24h, '+0.[00]')

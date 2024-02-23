@@ -21,7 +21,7 @@ import {
   useStakingStore,
   useWalletStore,
 } from '.';
-import { useBlockModule } from '@/modules/[chain]/block/block';
+import { useBlockModule } from '@/modules/chain/block/block';
 import { DEFAULT } from '@/libs';
 import { hexToRgb, rgbToHsl } from '@/libs/utils';
 
@@ -71,6 +71,7 @@ export const useBlockchain = defineStore('blockchain', {
         } else {
           document.body.style.setProperty('--p', '237.65 100% 70%');
         }
+        console.log(routes)
         currNavItem = [
           {
             title: this.current?.prettyName || this.chainName || '',
@@ -88,7 +89,7 @@ export const useBlockchain = defineStore('blockchain', {
               .map((x) => {
                 return {
                   title: `module.${x.meta.i18n}`,
-                  to: { path: x.path.replace(':chain', this.chainName) },
+                  to: { path: x.path },
                   icon: { icon: 'mdi-chevron-right', size: '22' },
                   i18n: true,
                   order: Number(x.meta.order || 100),
@@ -105,7 +106,7 @@ export const useBlockchain = defineStore('blockchain', {
         if (ch && this.dashboard.favoriteMap?.[name]) {
           favNavItems.push({
             title: ch.prettyName || ch.chainName || name,
-            to: { path: `/${ch.chainName || name}` },
+            to: { path: `/` },
             icon: { image: ch.logo, size: '22' },
           });
         }

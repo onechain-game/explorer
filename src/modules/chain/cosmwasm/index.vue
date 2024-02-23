@@ -25,7 +25,7 @@ function pageload(pageNum: number) {
 pageload(1)
 
 function myContracts() {
-    router.push(`/${props.chain}/cosmwasm/${creator.value}/contracts`)
+    router.push(`/cosmwasm/${creator.value}/contracts`)
 }
 </script>
 <template>
@@ -50,7 +50,7 @@ function myContracts() {
                     <tr v-for="(v, index) in codes.code_infos" :key="index">
                         <td>{{ v.code_id }}</td>
                         <td>
-                            <RouterLink :to="`/${props.chain}/cosmwasm/${v.code_id}/contracts`"
+                            <RouterLink :to="`/cosmwasm/${v.code_id}/contracts`"
                                 class="truncate max-w-[200px] block text-primary dark:invert" :title="v.data_hash">
                                 {{ v.data_hash }}
                             </RouterLink>

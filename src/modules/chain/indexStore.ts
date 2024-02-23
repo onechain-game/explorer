@@ -252,3 +252,8 @@ export const useIndexModule = defineStore('module-index', {
     },
   },
 });
+
+export default {
+  colorMap,
+  useIndexModule,
+}

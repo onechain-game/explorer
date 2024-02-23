@@ -176,7 +176,7 @@ const result = ref('');
                         <td>{{ resp.height }}</td>
                         <td>
                             <div class="text-xs truncate text-primary dark:invert">
-                                <RouterLink :to="`/${chainStore.chainName}/tx/${resp.txhash}`">{{ resp.txhash }}
+                                <RouterLink :to="`/tx/${resp.txhash}`">{{ resp.txhash }}
                                 </RouterLink>
                             </div>
                         </td>

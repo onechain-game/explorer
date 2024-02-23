@@ -56,7 +56,7 @@ const proposalInfo = ref();
           <td class="w-full">
             <div>
               <RouterLink
-                :to="`/${chain.chainName}/gov/${item?.proposal_id}`"
+                :to="`/gov/${item?.proposal_id}`"
                 class="text-main text-base mb-1 block hover:text-indigo-400 truncate"
               >
                 {{ item?.content?.title || item?.title }}
@@ -142,7 +142,7 @@ const proposalInfo = ref();
           class="text-main text-base mb-1 flex justify-between hover:text-indigo-400"
         >
           <RouterLink
-            :to="`/${chain.chainName}/gov/${item?.proposal_id}`"
+            :to="`/gov/${item?.proposal_id}`"
             class="flex-1 w-0 truncate mr-4"
             >{{ item?.content?.title || item?.title }}</RouterLink
           >

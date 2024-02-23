@@ -330,7 +330,7 @@ loadAvatars();
                                         </div>
                                     </div>
 
-                                    <div class="flex flex-col">
+                                    <!-- <div class="flex flex-col">
                                         <span class="text-sm text-primary dark:invert whitespace-nowrap overflow-hidden">
                                             <RouterLink
                                                 :to="{
@@ -350,7 +350,7 @@ loadAvatars();
                                             v.description?.identity ||
                                             '-'
                                         }}</span>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </td>
 

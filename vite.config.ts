@@ -30,7 +30,7 @@ export default defineConfig({
     }),
     vueJsx(),
     Pages({
-      dirs: ['./src/modules', './src/pages'],
+      dirs: ['./src/modules/chain', './src/pages'],
       exclude: ['**/*.ts'], // only load .vue as modules
     }),
     Layouts({

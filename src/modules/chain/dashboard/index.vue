@@ -1,8 +1,4 @@
 <script lang="ts" setup>
-import MdEditor from 'md-editor-v3';
-import PriceMarketChart from '@/components/charts/PriceMarketChart.vue';
-
-import { Icon } from '@iconify/vue';
 import {
   useBlockchain,
   useFormatter,
@@ -12,8 +8,12 @@ import {
   useParamStore,
 } from '@/stores';
 import { onMounted, ref } from 'vue';
-import { useIndexModule, colorMap } from './indexStore';
+import { useIndexModule, colorMap } from '../indexStore';
 import { computed } from '@vue/reactivity';
+import MdEditor from 'md-editor-v3';
+import PriceMarketChart from '@/components/charts/PriceMarketChart.vue';
+
+import { Icon } from '@iconify/vue';
 
 import CardStatisticsVertical from '@/components/CardStatisticsVertical.vue';
 import ProposalListItem from '@/components/ProposalListItem.vue';
@@ -278,7 +278,7 @@ const amount = computed({
         <span class="truncate" >{{ walletStore.currentAddress || 'Not Connected' }}</span>
         <RouterLink v-if="walletStore.currentAddress"
           class="float-right text-sm cursor-pointert link link-primary no-underline font-medium"
-          :to="`/${chain}/account/${walletStore.currentAddress}`">{{ $t('index.more') }}</RouterLink>
+          :to="`/account/${walletStore.currentAddress}`">{{ $t('index.more') }}</RouterLink>
       </div>
       <div class="grid grid-cols-1 md:!grid-cols-4 auto-cols-auto gap-4 px-4 pb-6">
         <div class="bg-gray-100 dark:bg-[#373f59] rounded-sm px-4 py-3">
@@ -332,7 +332,7 @@ const amount = computed({
           <tbody>
             <tr v-for="(item, index) in walletStore.delegations" :key="index">
               <td>
-                <RouterLink class="link link-primary no-underline" :to="`/${chain}/staking/${item?.delegation?.validator_address}`">
+                <RouterLink class="link link-primary no-underline" :to="`/staking/${item?.delegation?.validator_address}`">
                 {{
                   format.validatorFromBech32(
                     item?.delegation?.validator_address

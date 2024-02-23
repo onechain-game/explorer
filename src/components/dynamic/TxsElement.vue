@@ -48,7 +48,7 @@ const chain = useBlockchain();
       <tbody class="text-sm">
         <tr v-for="item in txs">
           <td>
-            <RouterLink :to="`/${chain.chainName}/tx/${item.hash}`" class="text-primary dark:invert">{{
+            <RouterLink :to="`/tx/${item.hash}`" class="text-primary dark:invert">{{
               format.formatSortHash(item.hash)
             }}</RouterLink>
           </td>
@@ -59,8 +59,8 @@ const chain = useBlockchain();
               )
             }}
           </td>
-          <td><RouterLink :to="`/${chainStore.chainName}/account/${item.data.from}`">{{ format.formatSortAddress(item.data.from || '') }}</RouterLink></td>
-          <td><RouterLink :to="`/${chainStore.chainName}/account/${item.data.to.replaceAll('','')}`">{{ format.formatSortAddress(item.data.to.replaceAll('','') || '') }}</RouterLink></td>
+          <td><RouterLink :to="`/account/${item.data.from}`">{{ format.formatSortAddress(item.data.from || '') }}</RouterLink></td>
+          <td><RouterLink :to="`/account/${item.data.to.replaceAll('','')}`">{{ format.formatSortAddress(item.data.to.replaceAll('','') || '') }}</RouterLink></td>
           <td>
             <p v-for="element in item.data.amount">{{`${element[1]}${element[0]} `}} </p>
           </td>

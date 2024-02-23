@@ -290,7 +290,7 @@ function color(v: string) {
             <td>{{ resp.height }}</td>
             <td>
               <div class="text-xs truncate text-primary dark:invert">
-                <RouterLink :to="`/${chainStore.chainName}/tx/${resp.txhash}`">{{ resp.txhash }}</RouterLink>
+                <RouterLink :to="`/tx/${resp.txhash}`">{{ resp.txhash }}</RouterLink>
               </div>
             </td>
             <td>

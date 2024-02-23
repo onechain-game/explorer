@@ -61,7 +61,7 @@ const isConvertable = computed(() => {
     class="md-editor-recover"
   ></MdEditor>
   <span v-else-if="isAddress()" class="flex">
-    <RouterLink :to="`/${chainStore.chainName}/account/${text}`">{{ text }}</RouterLink>
+    <RouterLink :to="`/account/${text}`">{{ text }}</RouterLink>
     <div v-for="{name, provider} in names">
       <span class="text-xs truncate relative py-1 px-2 p2-4 w-fit ml-2 rounded text-success tooltip" :data-tip="provider" :title="provider">
         <span class="inset-x-0 inset-y-0 opacity-10 absolute bg-success"></span>
