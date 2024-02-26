@@ -146,7 +146,7 @@ export function fromLocal(lc: LocalConfig): ChainConfig {
     exponent: x.exponent,
     denom_units: [
       { denom: x.base, exponent: 0 },
-      { denom: x.symbol.toLowerCase(), exponent: Number(x.exponent) },
+      { denom: x.symbol, exponent: Number(x.exponent) },
     ],
   }));
   conf.versions = {

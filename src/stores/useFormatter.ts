@@ -241,10 +241,10 @@ export const useFormatter = defineStore('formatter', {
             this.fetchDenomMetadata(denom.replace('ibc/', ''))
           }
         }
-
         if (conf) {
           let unit = { exponent: 0, denom: '' };
           // find the max exponent for display
+          console.log(conf.denom_units)
           conf.denom_units.forEach((x) => {
             if (x.exponent >= unit.exponent) {
               unit = x;
@@ -252,7 +252,7 @@ export const useFormatter = defineStore('formatter', {
           });
           if (unit && unit.exponent > 0) {
             amount = amount / Math.pow(10, unit.exponent || 6);
-            denom = unit.denom.toUpperCase();
+            denom = unit.denom;
           }
         }
 

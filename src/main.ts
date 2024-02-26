@@ -9,12 +9,10 @@ import LazyLoad from 'lazy-load-vue3';
 import router from './router';
 import { useBaseStore } from './stores/useBaseStore';
 
-console.log('createApp')
 // Create vue app
 const app = createApp(App);
 // Use plugins
 app.use(i18n);
-console.log('createPinia')
 app.use(createPinia());
 app.use(router);
 app.use(LazyLoad, { component: true });

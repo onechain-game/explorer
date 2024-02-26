@@ -71,7 +71,6 @@ export const useBlockchain = defineStore('blockchain', {
         } else {
           document.body.style.setProperty('--p', '237.65 100% 70%');
         }
-        console.log(routes)
         currNavItem = [
           {
             title: this.current?.prettyName || this.chainName || '',

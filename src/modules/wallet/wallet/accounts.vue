@@ -11,7 +11,7 @@ import {
   type AccountEntry,
   scanCompatibleAccounts,
   type LocalKey,
-} from './utils';
+} from '../wallet/utils';
 
 const dashboard = useDashboard();
 const chainStore = useBlockchain()

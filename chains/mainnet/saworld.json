@@ -11,8 +11,8 @@
     "logo": "https://bscscan.com/token/images/summonersarena2_32.png",
     "theme_color": "#812cd6",
     "assets": [{
-        "base": "sae",
-        "symbol": "sae",
+        "base": "uSAE",
+        "symbol": "uSAE",
         "exponent": "6",
         "coingecko_id": "cosmos", 
         "logo": "https://bscscan.com/token/images/summonersarena2_32.png"

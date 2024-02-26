@@ -5,7 +5,7 @@
     "staking": "Staking",
     "governance": "Governance",
     "parameters": "Parameters",
-    "transactions": "Transactions",
+    "transactions": "ASG, SAE",
     "uptime": "Uptime",
     "state-sync": "State Sync",
     "cosmwasm": "Cosmwasm",

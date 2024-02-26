@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
 import { controlledComputed } from '@vueuse/core'
+import { useFormatter } from '@/stores';
+import { formatNumber } from '@/libs/utils';
 
 interface Props {
   title: string;
@@ -11,6 +13,7 @@ interface Props {
   subtitle?: string;
 }
 
+const formatter = useFormatter();
 const props = withDefaults(defineProps<Props>(), {
   color: 'primary',
 });
